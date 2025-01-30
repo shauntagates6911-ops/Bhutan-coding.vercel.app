@@ -67,6 +67,9 @@ class ShareButton extends React.Component {
         if (!e.data.p4) {
             return;
         }
+        if (!e.data.p4) {
+            return;
+        }
 
         const packagerData = e.data.p4;
         if (packagerData.type !== 'validate') {

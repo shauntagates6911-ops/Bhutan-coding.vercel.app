@@ -15,6 +15,8 @@ const MODAL_USERNAME = 'usernameModal';
 const MODAL_SETTINGS = 'settingsModal';
 const MODAL_EXTS = 'extensionManagerModal';
 const MODAL_CUSTOM_EXTENSION = 'customExtensionModal';
+const MODAL_RESTORE_POINTS = 'restorePointModal';
+const MODAL_FONTS = 'fontsModal';
 
 const initialState = {
     [MODAL_BACKDROP_LIBRARY]: false,
@@ -30,16 +32,22 @@ const initialState = {
     [MODAL_USERNAME]: false,
     [MODAL_SETTINGS]: false,
     [MODAL_EXTS]: false,
-    [MODAL_CUSTOM_EXTENSION]: false
+    [MODAL_CUSTOM_EXTENSION]: false,
+    [MODAL_RESTORE_POINTS]: false,
+    [MODAL_FONTS]: false,
+    extensionModalSwapId: null
 };
 
 const reducer = function (state, action) {
     if (typeof state === 'undefined') state = initialState;
     switch (action.type) {
-    case OPEN_MODAL:
-        return Object.assign({}, state, {
+    case OPEN_MODAL: {
+        const makeState = {
             [action.modal]: true
-        });
+        };
+        if (action.extensionModalSwapId) makeState.extensionModalSwapId = action.extensionModalSwapId;
+        return Object.assign({}, state, makeState);
+    }
     case CLOSE_MODAL:
         return Object.assign({}, state, {
             [action.modal]: false
@@ -48,10 +56,11 @@ const reducer = function (state, action) {
         return state;
     }
 };
-const openModal = function (modal) {
+const openModal = function (modal, extensionModalSwapId) {
     return {
         type: OPEN_MODAL,
-        modal: modal
+        modal: modal,
+        extensionModalSwapId
     };
 };
 const closeModal = function (modal) {
@@ -60,6 +69,9 @@ const closeModal = function (modal) {
         modal: modal
     };
 };
+const openExtManagerModal = () => {
+    return openModal(MODAL_EXTS);
+}
 const openBackdropLibrary = function () {
     return openModal(MODAL_BACKDROP_LIBRARY);
 };
@@ -96,11 +108,14 @@ const openUsernameModal = function () {
 const openSettingsModal = function () {
     return openModal(MODAL_SETTINGS);
 };
-const openExtManagerModal = () => {
-    return openModal(MODAL_EXTS);
-}
-const openCustomExtensionModal = function () {
-    return openModal(MODAL_CUSTOM_EXTENSION);
+const openCustomExtensionModal = function (swapId) {
+    return openModal(MODAL_CUSTOM_EXTENSION, swapId);
+};
+const openRestorePointModal = function () {
+    return openModal(MODAL_RESTORE_POINTS);
+};
+const openFontsModal = function () {
+    return openModal(MODAL_FONTS);
 };
 const closeBackdropLibrary = function () {
     return closeModal(MODAL_BACKDROP_LIBRARY);
@@ -144,9 +159,16 @@ const closeExtManagerModal = () => {
 const closeCustomExtensionModal = function () {
     return closeModal(MODAL_CUSTOM_EXTENSION);
 };
+const closeRestorePointModal = function () {
+    return closeModal(MODAL_RESTORE_POINTS);
+};
+const closeFontsModal = function () {
+    return closeModal(MODAL_FONTS);
+};
 export {
     reducer as default,
     initialState as modalsInitialState,
+    openExtManagerModal,
     openBackdropLibrary,
     openCostumeLibrary,
     openExtensionLibrary,
@@ -159,8 +181,10 @@ export {
     openConnectionModal,
     openUsernameModal,
     openSettingsModal,
-    openExtManagerModal,
     openCustomExtensionModal,
+    openRestorePointModal,
+    openFontsModal,
+    closeExtManagerModal,
     closeBackdropLibrary,
     closeCostumeLibrary,
     closeExtensionLibrary,
@@ -173,6 +197,7 @@ export {
     closeConnectionModal,
     closeUsernameModal,
     closeSettingsModal,
-    closeExtManagerModal,
-    closeCustomExtensionModal
+    closeCustomExtensionModal,
+    closeRestorePointModal,
+    closeFontsModal
 };
