@@ -14,8 +14,8 @@
     class snailapi {
       getInfo() {
         return {
-          id: "snailapi",
-          name: "Snail IDE",
+          id: "bhutancodingapi",
+          name: "Bhutan Coding",
           menuIconURI: icon,
           color1: "#855cd6",
           color2: "#7450ba",
