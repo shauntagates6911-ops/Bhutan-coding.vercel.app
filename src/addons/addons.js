@@ -70,7 +70,11 @@ const addons = [
     'tw-remove-feedback',
     'tw-disable-cloud-variables',
     'tw-disable-restore-points',
-    'editor-stepping'
+    'editor-stepping',
+    'stale-mapping',
+    'sprunkifier',
+    'git',
+    'bhutan-country-facts'
 ];
 
 const newAddons = [
