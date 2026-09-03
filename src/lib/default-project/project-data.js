@@ -3,7 +3,7 @@ import sharedMessages from '../shared-messages';
 
 let messages = defineMessages({
     variable: {
-        defaultMessage: '🐌',
+        defaultMessage: '🇧🇹',
         description: 'Name for the default variable',
         id: 'gui.defaultProject.variable'
     }
@@ -60,9 +60,9 @@ const projectData = translateFunction => {
                 currentCostume: 0,
                 costumes: [
                     {
-                        name: "costume1",
+                        name: "Default",
                         bitmapResolution: 1,
-                        dataFormat: "svg",
+                        dataFormat: "jpeg",
                         assetId: "592bae6f8bb9c8d88401b54ac431f7b6",
                         md5ext: "592bae6f8bb9c8d88401b54ac431f7b6.svg",
                         rotationCenterX: 37.387305,
