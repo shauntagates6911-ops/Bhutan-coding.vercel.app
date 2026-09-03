@@ -5,7 +5,7 @@ import gifDecoder from './gif-decoder';
 import fixSVG from './tw-svg-fixer';
 
 /**
- * Extract the file name given a string of the form fileName + ext
+ * Extract the file name given a string of the form fileName + ext!
  * @param {string} nameExt File name + extension (e.g. 'my_image.png')
  * @return {string} The name without the extension, or the full name if
  * there was no '.' in the string (e.g. 'my_image')
