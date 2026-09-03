@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="74.77461" height="64.935" viewBox="0 0 74.77461 64.935">
+  <defs>
+    <linearGradient id="bhutan-split" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FF4F00"/>
+      <stop offset="100%" stop-color="#FFD400"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background split (Bhutan flag diagonal) -->
+  <rect width="74.77461" height="64.935" fill="url(#bhutan-split)" />
+
+  <!-- Dragon (simple white silhouette for clean icon use) -->
+  <path 
+    d="M20 32 C22 20 35 12 45 18 C55 24 58 38 52 48 C46 58 32 60 25 52 C18 44 18 36 20 32 Z
+       M30 28 L34 24 M40 30 L44 26 M38 40 L42 44 M28 42 L24 46"
+    stroke="white"
+    stroke-width="2"
+    fill="none"
+  />
+</svg>
